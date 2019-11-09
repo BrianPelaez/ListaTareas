@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import ar.utn.frba.sceu.todo.todolist.DTO.TareaDTO;
+import ar.utn.frba.sceu.todo.todolist.Models.Persona;
 import ar.utn.frba.sceu.todo.todolist.Models.Tarea;
+import ar.utn.frba.sceu.todo.todolist.Repositories.PersonaRepository;
 import ar.utn.frba.sceu.todo.todolist.Repositories.TareaRepository;
 
 @RestController
@@ -15,6 +17,8 @@ public class TareaController {
 	
 	@Autowired
 	TareaRepository tareaRepository;
+	@Autowired
+	PersonaRepository personaRepository;
 
 	@GetMapping("/")
 	public Iterable<Tarea> listarTodo() {
@@ -40,15 +44,37 @@ public class TareaController {
 
 	}
 
-	@PostMapping("/")
-	public boolean crearTarea(@RequestBody Tarea body) {
-		/*
-		 * Tarea tarea = new Tarea(); tarea.setDetalle(body.getDetalle());
-		 * tarea.setFechaInicio(body.getFechaInicio());
-		 * tarea.setAsignado(body.getAsignado());
-		 */
+	@PostMapping("/{id}")
+	public boolean crearTarea(@RequestBody Tarea body, @PathVariable Integer id) {
+		Persona persona;
 		if (!body.getDetalle().isEmpty()) {
+			persona = personaRepository.findById(id).orElse(null);
+			body.setAsignado(persona.getNombre()+" "+persona.getApellido());
 			tareaRepository.save(body);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@DeleteMapping("/{id}")
+	public boolean borrarTarea(@PathVariable Integer id) {
+		if (tareaRepository.existsById(id)) {
+			tareaRepository.deleteById(id);
+			return true;
+		} else {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encuentra la tarea");
+		}
+	}
+	
+	@PutMapping("/")
+	public boolean modificar(@RequestBody Tarea body, @PathVariable Integer id) {
+	
+		Tarea tarea = tareaRepository.findById(id).orElse(null);
+		
+		
+		if (!body.getDetalle().isEmpty()) {
+			//tareaRepository
 			return true;
 		} else {
 			return false;
