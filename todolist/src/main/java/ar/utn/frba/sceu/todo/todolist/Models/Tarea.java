@@ -3,13 +3,14 @@ package ar.utn.frba.sceu.todo.todolist.Models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "tarea")
 public class Tarea {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Integer id;
 
-	String detalle, fechaInicio, fechaFin, asignado, fechaVencimiento;
+	String detalle, fecha_inicio, fecha_fin, asignado, fecha_vencimiento;
 	Boolean realizada;
 
 	public Integer getId() {
@@ -29,19 +30,19 @@ public class Tarea {
 	}
 
 	public String getFechaInicio() {
-		return fechaInicio;
+		return fecha_inicio;
 	}
 
-	public void setFechaInicio(String fechaInicio) {
-		this.fechaInicio = fechaInicio;
+	public void setFechaInicio(String fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
 	}
 
 	public String getFechaFin() {
-		return fechaFin;
+		return fecha_fin;
 	}
 
-	public void setFechaFin(String fechaFin) {
-		this.fechaFin = fechaFin;
+	public void setFechaFin(String fecha_fin) {
+		this.fecha_fin = fecha_fin;
 	}
 
 	public String getAsignado() {
@@ -53,11 +54,11 @@ public class Tarea {
 	}
 
 	public String getFechaVencimiento() {
-		return fechaVencimiento;
+		return fecha_vencimiento;
 	}
 
-	public void setFechaVencimiento(String fechaVencimiento) {
-		this.fechaVencimiento = fechaVencimiento;
+	public void setFechaVencimiento(String fecha_vencimiento) {
+		this.fecha_vencimiento = fecha_vencimiento;
 	}
 
 	public Boolean getRealizada() {
