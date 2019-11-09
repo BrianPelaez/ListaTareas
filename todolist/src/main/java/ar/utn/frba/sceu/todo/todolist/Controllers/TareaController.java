@@ -11,7 +11,7 @@ import ar.utn.frba.sceu.todo.todolist.Repositories.TareaRepository;
 @RestController
 @RequestMapping("api")
 public class TareaController {
-
+	@AutoWired
 	TareaRepository tareaRepository;
 
 	@GetMapping("/")
