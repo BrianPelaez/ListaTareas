@@ -1,5 +1,7 @@
 package ar.utn.frba.sceu.todo.todolist.Models;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,8 +12,9 @@ public class Tarea {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Integer id;
 
-	String detalle, fecha_inicio, fecha_fin, asignado, fecha_vencimiento;
+	String detalle, asignado;
 	Boolean realizada;
+	Date fecha_inicio, fecha_fin, fecha_vencimiento;
 
 	public Integer getId() {
 		return id;
@@ -29,21 +32,6 @@ public class Tarea {
 		this.detalle = detalle;
 	}
 
-	public String getFechaInicio() {
-		return fecha_inicio;
-	}
-
-	public void setFechaInicio(String fecha_inicio) {
-		this.fecha_inicio = fecha_inicio;
-	}
-
-	public String getFechaFin() {
-		return fecha_fin;
-	}
-
-	public void setFechaFin(String fecha_fin) {
-		this.fecha_fin = fecha_fin;
-	}
 
 	public String getAsignado() {
 		return asignado;
@@ -53,11 +41,28 @@ public class Tarea {
 		this.asignado = asignado;
 	}
 
-	public String getFechaVencimiento() {
+
+	public Date getFecha_inicio() {
+		return fecha_inicio;
+	}
+
+	public void setFecha_inicio(Date fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
+	}
+
+	public Date getFecha_fin() {
+		return fecha_fin;
+	}
+
+	public void setFecha_fin(Date fecha_fin) {
+		this.fecha_fin = fecha_fin;
+	}
+
+	public Date getFecha_vencimiento() {
 		return fecha_vencimiento;
 	}
 
-	public void setFechaVencimiento(String fecha_vencimiento) {
+	public void setFecha_vencimiento(Date fecha_vencimiento) {
 		this.fecha_vencimiento = fecha_vencimiento;
 	}
 

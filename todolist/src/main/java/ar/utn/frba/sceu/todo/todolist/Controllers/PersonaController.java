@@ -22,14 +22,33 @@ public class PersonaController {
 		return personaRepository.findAll();
 	}
 	
+	@GetMapping("/persona/{id}")
+	public Persona listarID(@PathVariable Integer id) {
+		return personaRepository.findById(id).orElseThrow();
+	}
+	
 	@PostMapping("/persona")
-	public boolean guardarPersona(@RequestBody Persona body) {
+	public String guardarPersona(@RequestBody Persona body) {
 		if (body != null) {
 			personaRepository.save(body);
-			return true;
+			return "Persona Agregada";
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Hubo un error al cargar la Persona");
 		}
+		
+	}
+	
+	@PutMapping("/persona/{id}")
+	public String modificarPersona(@RequestBody Persona body, @PathVariable Integer id) {
+		Persona persona = personaRepository.findById(id).orElse(null);
+		if(persona != null) {
+			persona.setApellido(body.getApellido().isEmpty() ? persona.getApellido() : body.getApellido());
+			persona.setNombre(body.getNombre().isEmpty() ? persona.getNombre() : body.getNombre());
+			persona.setEdad(body.getEdad() == null ? persona.getEdad() : body.getEdad());
+			personaRepository.save(persona);
+			return "Modificado";
+		}
+		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se encuentra a la persona");
 		
 	}
 	

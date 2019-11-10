@@ -1,11 +1,14 @@
 package ar.utn.frba.sceu.todo.todolist.DTO;
 
+import java.sql.Date;
+
 public class TareaDTO {
 
 	Integer id;
 
-	String detalle, fechaInicio, fechaFin, asignado, fechaVencimiento;
+	String detalle, asignado;
 	Boolean realizada;
+	Date fecha_inicio, fecha_fin, fecha_vencimiento;
 
 	public Integer getId() {
 		return id;
@@ -23,21 +26,6 @@ public class TareaDTO {
 		this.detalle = detalle;
 	}
 
-	public String getFechaInicio() {
-		return fechaInicio;
-	}
-
-	public void setFechaInicio(String fechaInicio) {
-		this.fechaInicio = fechaInicio;
-	}
-
-	public String getFechaFin() {
-		return fechaFin;
-	}
-
-	public void setFechaFin(String fechaFin) {
-		this.fechaFin = fechaFin;
-	}
 
 	public String getAsignado() {
 		return asignado;
@@ -47,12 +35,29 @@ public class TareaDTO {
 		this.asignado = asignado;
 	}
 
-	public String getFechaVencimiento() {
-		return fechaVencimiento;
+
+	public Date getFecha_inicio() {
+		return fecha_inicio;
 	}
 
-	public void setFechaVencimiento(String fechaVencimiento) {
-		this.fechaVencimiento = fechaVencimiento;
+	public void setFecha_inicio(Date fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
+	}
+
+	public Date getFecha_fin() {
+		return fecha_fin;
+	}
+
+	public void setFecha_fin(Date fecha_fin) {
+		this.fecha_fin = fecha_fin;
+	}
+
+	public Date getFecha_vencimiento() {
+		return fecha_vencimiento;
+	}
+
+	public void setFecha_vencimiento(Date fecha_vencimiento) {
+		this.fecha_vencimiento = fecha_vencimiento;
 	}
 
 	public Boolean getRealizada() {
