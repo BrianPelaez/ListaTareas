@@ -17,6 +17,11 @@ public class Persona {
 		return id;
 	}
 
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
+	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
