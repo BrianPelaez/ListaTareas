@@ -1,29 +1,13 @@
-package ar.utn.frba.sceu.todo.todolist.Models;
+package ar.utn.frba.sceu.todo.todolist.DTO;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "persona")
-public class Persona {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	Integer id;
+public class PersonaDTO {
 
 	String nombre, apellido, mail;
 	Integer edad;
 
-	public Integer getId() {
-		return id;
-	}
-
 	@Override
 	public String toString() {
-		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
 	}
 
 	public String getMail() {

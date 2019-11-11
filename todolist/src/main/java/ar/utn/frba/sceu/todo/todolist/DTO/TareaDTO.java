@@ -26,7 +26,6 @@ public class TareaDTO {
 		this.detalle = detalle;
 	}
 
-
 	public String getAsignado() {
 		return asignado;
 	}
@@ -34,7 +33,6 @@ public class TareaDTO {
 	public void setAsignado(String asignado) {
 		this.asignado = asignado;
 	}
-
 
 	public Date getFecha_inicio() {
 		return fecha_inicio;

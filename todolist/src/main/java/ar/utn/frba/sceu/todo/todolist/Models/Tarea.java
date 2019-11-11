@@ -32,7 +32,6 @@ public class Tarea {
 		this.detalle = detalle;
 	}
 
-
 	public String getAsignado() {
 		return asignado;
 	}
@@ -40,7 +39,6 @@ public class Tarea {
 	public void setAsignado(String asignado) {
 		this.asignado = asignado;
 	}
-
 
 	public Date getFecha_inicio() {
 		return fecha_inicio;
